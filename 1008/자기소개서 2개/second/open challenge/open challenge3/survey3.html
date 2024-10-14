@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소프트웨어 기술 선호에 관한 설문</title>
+</head>
+<body>
+    <h1>설문지</h1>
+    <p>소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.</p>
+    <hr>
+    <form>
+        <p>
+            학년  
+            <input type="radio" name="grade" value="1" checked style="accent-color: blue;">1학년
+            <input type="radio" name="grade" value="2" style="accent-color: blue;">2학년
+            <input type="radio" name="grade" value="3" style="accent-color: blue;">3학년
+            <input type="radio" name="grade" value="4" style="accent-color: blue;">4학년
+        </p>
+
+        <p>
+            성별 
+            <input type="radio" name="gender" value="1" style="accent-color: blue;">남
+            <input type="radio" name="gender" value="2" style="accent-color: blue;">여
+        </p>    
+
+        <p>
+            관심 분야 <select name="softward">
+                        <option value="1" selected>모바일 소프트웨어</option>
+                        <option value="2">PC 소프트웨어</option>
+                        <option value="3">기업용 소프트웨어</option>
+                    </select>
+        </p>
+                
+        <p>
+        진로 
+        <input type="checkbox" value="1" checked style="accent-color: blue;">개발
+        <input type="checkbox" value="2" style="accent-color: blue;">기획
+        <input type="checkbox" value="3" style="accent-color: blue;">영업
+        <input type="checkbox" value="4" style="accent-color: blue;">창업
+        </p>
+        
+        남기고 싶은 말
+        <br>
+        <textarea cols="60" rows="10" placeholder="글을 남겨주세요"></textarea>
+    </form>
+</body>
+</html>
