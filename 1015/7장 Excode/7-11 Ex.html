@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로토타입으로 객체 만들기</title>
+    <script>
+        // 프로토타입만들기: 생성자함수작성
+       function Account(owner, code, balance) {
+            // 프로퍼티만들기
+            this.owner= owner; // 계좌주인프로퍼티만들기
+            this.code= code; // 계좌코드프로퍼티만들기
+            this.balance= balance; // 잔액프로퍼티만들기
+            // 메소드만들기
+            this.inquiry= function () { return this.balance; }
+            this.deposit= function (money) { this.balance+= money; } 
+            this.withdraw= function (money) {// 예금인출, money는인출하는액수
+                // money가balance보다작다고가정
+                this.balance-= money; 
+                return money;
+            } 
+        }
+        </script>
+</head>
+<body>
+    <h3>Account 프로토타입만들기</h3>
+    <hr>
+    <script>
+        // new 연산자이용하여계좌객체생성
+        let account = new Account("황기태", "111", 35000);
+        // 객체활용
+        document.write("account : ");
+        document.write(account.owner+ ", ");
+        document.write(account.code+ ", ");
+        document.write(account.balance+ "<br>");
+        account.deposit(10000); // 10000원저금
+        document.write("10000원저금후잔액은" + account.inquiry() + "<br>");
+        account.withdraw(5000); // 5000원인출
+        document.write("5000원인출후잔액은" + account.inquiry() + "<br>");
+    </script>
+</body>
+</html>

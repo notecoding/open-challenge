@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 객체의 메소들 활용</title>
+    <script>
+        function pr(msg, arr) { document.write(msg+ arr.toString() + "<br>"); }
+    </script>
+</head>
+<body>
+    <h3>Array 객체의메소드활용</h3>
+    <hr>
+    <script>
+        let a = new Array("황", "김", "이");
+        let b = new Array("박");
+        let c;
+        pr("배열a = ", a);
+        pr("배열b = ", b);
+        document.write("<hr>");
+        c = a.concat(b); // c는a와b를연결한새배열
+        pr("c = a.concat(b)후c = ", c);
+        pr("c = a.concat(b)후a = ", a);
+        c = a.join("##"); // c는배열a를연결한문자열
+        pr("c = a.join() 후c = ", c);
+        pr("c = a.join() 후a = ", a);
+        c = a.reverse(); // a.reverse()로a 자체변경. c는배열
+        pr("c= a.reverse() 후c = ", c); 
+        pr("c= a.reverse() 후a = ", a);
+        c = a.slice(1, 2); // c는새배열
+        pr("c= a.slice(1, 2) 후c = ", c);
+        pr("c= a.slice(1, 2) 후a = ", a);
+        c = a.sort(); // a.sort()는a 자체변경. c는배열
+        pr("c= a.sort() 후c = ", c);
+        pr("c= a.sort() 후a = ", a);
+        c = a.toString(); // toString()은원소사이에","를넣어문자열생성
+        document.write("a.toString() : " + c); // c 는문자열
+    </script>
+</body>
+</html>
