@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방문 요일</title>
+</head>
+<body>
+    <h3>일요일은 pink, 다른 요일은 gold 배경</h3>
+    <hr>
+    <script>
+        let current = new Date();
+        let date = current.getDate();
+        let day = current.getDay();
+        
+        if(day==0){
+            document.body.style.backgroundColor="pink";
+            day="일";
+        }
+        else{
+            document.body.style.backgroundColor="gold";
+            if(day==1)day="월";
+            else if(day==2)day="화";
+            else if(day==3)day="수";
+            else if(day==4)day="목";
+            else if(day==5)day="금";
+            else if(day==6)day="토";
+        }
+
+        document.write("오늘 : "+date+"일,"+day+"요일");
+    </script>
+</body>
+</html>
