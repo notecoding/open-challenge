@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별 문자 출력하기</title>
+</head>
+<body>
+    <script>
+        s=prompt("정수를 입력하세요");
+        document.write("<h3>별 문자 출력하기</h3>");
+        document.write("<hr>");
+        if(isNaN(s)==true){
+            document.write("입력 오류 입니다");
+        }
+        else{
+            s=parseInt(s);
+            for(i=1;i<=s;i++){
+                for(j=0;j<i;j++){
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+        }
+    </script>
+</body>
+</html>
