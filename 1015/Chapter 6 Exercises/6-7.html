@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>큰 자리수와 낮은 자리수 같은지 비교</title>
+</head>
+<body>
+    <h3>큰 자리수와 낮은 자리수 같은지 비교</h3>
+    <hr>
+    <script>
+        s=prompt("숫자 입력");
+        small=s%10;
+        while(true){
+            s/=10;
+            if(s<10){
+                break;
+            }
+        }
+        s=Math.floor(s);
+        small=Math.floor(small);
+        if(small==s){
+            document.write("성공");
+        }
+        else{
+            document.write("다름");
+        }
+    </script>
+</body>
+</html>
