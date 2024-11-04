@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갬블링 게임</title>
+    <style>
+        div{
+            display: inline-block;
+            height: 50px;
+            width: 100px;
+            border: solid 1px brown;
+            background-color: blanchedalmond;
+            text-align: center;
+        }
+        span{
+            font-size: 40px;
+            color: blue;
+        } 
+    </style>
+    <script>
+        a=4,b=4,c=4;
+        count1,count2,count3=0,0,0;
+        function dom1(){            
+        //계속 안되서 abc를 4로 해놨음 0~2까지니까    
+            if(a==4){
+                let p = document.getElementById("a");
+                let temp = Math.floor(Math.random()*3);
+                p.innerHTML=temp;
+                a=temp;
+                count1 = 1;    
+            } 
+            
+            let t = document.getElementById("answer");
+            if(a==b && b==c){
+                t.innerHTML="Success(click here to do again)";
+                
+            }
+            else if(count1!=0 && count2 != 0 && count3 != 0){
+                t.innerHTML="fall(click here to do again)";
+                
+            }
+        }
+
+        function dom2(){            
+            if(b==4){
+                let p = document.getElementById("b");
+            let temp = Math.floor(Math.random()*3);
+            p.innerHTML=temp;
+            b=temp;
+            count2=1;
+            }
+
+            let t = document.getElementById("answer");
+            
+            if(a==b && b==c){
+                t.innerHTML="Success(click here to do again)";
+                
+            }
+            else if(count1!=0 && count2 != 0 && count3 != 0){
+                t.innerHTML="fall(click here to do again)";
+                
+            }
+        }
+
+        function dom3(){            
+            if(c==4){
+                let p = document.getElementById("c");
+            let temp = Math.floor(Math.random()*3);
+            p.innerHTML=temp;
+            c=temp;
+            count3=1;
+            }
+            let t = document.getElementById("answer");
+            if(a==b && b==c){
+                t.innerHTML="Success(click here to do again)";
+                
+            }
+            else if(count1!=0 && count2 != 0 && count3 != 0){
+                t.innerHTML="fall(click here to do again)";
+                
+            }
+        }
+
+        
+        
+        function re(){
+            let ap = document.getElementById("a");
+            let bp = document.getElementById("b");
+            let cp = document.getElementById("c");
+            let t =document.getElementById("answer");
+            answer.innerHTML="";
+            ap.innerHTML="0";
+            bp.innerHTML="0";
+            cp.innerHTML="0";
+            a,b,c=4,4,4;
+            count1,count2,count3=0,0,0;
+        }
+    </script>
+</head>
+<body id="parent">
+    <h3>갬블링 게임</h3>
+    <p>각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두
+        같은 수가 나오면 승리합니다.
+    </p>
+    <hr>
+    <div> <span id="a" onclick="dom1()">0</span> <span id="b" onclick="dom2()">0</span> <span id="c" onclick="dom3()">0</span> </div>
+    <p id="answer" style="color:purple" onclick="re()"></p>
+</body>
+</html>
