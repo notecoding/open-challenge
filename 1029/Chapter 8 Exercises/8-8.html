@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform3</title>
+</head>
+<body>
+    <h3>클릭하면 2,3,4배 옆으로 늘어납니다.</h3>
+    <hr>
+    <img onclick="a()" id="b" src="스폰지밥.png" alt="스폰지밥">
+    <script>
+        n=2;
+        function a(){
+            n++;
+            let p = document.getElementById("b");
+            p.style.transform="scale("+n+",1)";
+        }
+    </script>
+</body>
+</html>
