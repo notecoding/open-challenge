@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기 소개</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Foundation CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles for better integration */
+        .hero {
+            background-color: #f7f7f7;
+            padding: 5rem 0;
+        }
+        .profile-img {
+            max-width: 150px;
+            border-radius: 50%;
+            border: 4px solid #007bff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .intro-text {
+            margin-top: 20px;
+        }
+        .button-custom {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+        }
+        .button-custom:hover {
+            background-color: #0056b3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <!-- Profile Image -->
+                <div class="col-md-4 text-center">
+                    <img src="https://via.placeholder.com/150" alt="프로필 이미지" class="profile-img">
+                </div>
+                <!-- Introduction Text -->
+                <div class="col-md-8">
+                    <div class="callout large primary text-center">
+                        <h1 class="display-4">안녕하세요, 저는 홍길동입니다!</h1>
+                        <p class="lead">웹 개발자입니다. HTML, CSS, JavaScript, React 등을 사용하여 웹 애플리케이션을 개발합니다.</p>
+                        <p class="intro-text">새로운 기술을 배우고 프로젝트를 개발하는 데 열정적인 개발자입니다. 언제든지 연락 주세요!</p>
+                        <a href="mailto:example@example.com" class="button-custom">이메일 보내기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="container py-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="callout secondary">
+                    <h2 class="text-center">기술 스택</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item">HTML5 & CSS3</li>
+                        <li class="list-group-item">JavaScript (ES6+)</li>
+                        <li class="list-group-item">React</li>
+                        <li class="list-group-item">Node.js & Express</li>
+                        <li class="list-group-item">Git & GitHub</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="callout success">
+                    <h3 class="text-center">취미</h3>
+                    <ul class="menu vertical">
+                        <li>여행</li>
+                        <li>사진 촬영</li>
+                        <li>영화 감상</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap and Foundation JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>
