@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기소개</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #3498db;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-custom {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+
+        .button-custom:hover {
+            background-color: #2980b9;
+        }
+    </style>
+
+<script>
+  // 페이지 로드 후 동적으로 콘텐츠를 생성하는 함수
+  function createContent() {
+      // 1. 상위 container 생성
+      const container = document.createElement('div');
+      container.className = 'container text-center my-5';
+
+      // 2. 프로필 이미지 생성
+      const profileImg = document.createElement('img');
+      profileImg.src = 'https://via.placeholder.com/150';
+      profileImg.alt = '프로필 이미지';
+      profileImg.className = 'profile-img mb-4';
+      container.appendChild(profileImg);
+
+      // 3. 자기소개 제목
+      const heading = document.createElement('h1');
+      heading.innerText = '안녕하세요, 저는 홍길동입니다!';
+      container.appendChild(heading);
+
+      // 4. 자기소개 텍스트
+      const introText = document.createElement('p');
+      introText.innerText = '웹 개발자이며 다양한 기술을 배우고 적용하는 것을 좋아합니다.';
+      container.appendChild(introText);
+
+      // 5. 기술 스택 제목
+      const skillsHeading = document.createElement('h3');
+      skillsHeading.className = 'mt-4';
+      skillsHeading.innerText = '기술 스택';
+      container.appendChild(skillsHeading);
+
+      // 6. 기술 스택 리스트
+      const skillsList = document.createElement('ul');
+      skillsList.className = 'list-unstyled';
+      const skills = ['HTML5, CSS3', 'JavaScript (ES6+)', 'React, Node.js'];
+
+      skills.forEach(skill => {
+          const li = document.createElement('li');
+          li.innerText = skill;
+          skillsList.appendChild(li);
+      });
+      container.appendChild(skillsList);
+
+      // 7. 이메일 보내기 버튼
+      const emailButton = document.createElement('a');
+      emailButton.href = 'mailto:example@example.com';
+      emailButton.className = 'button-custom mt-4';
+      emailButton.innerText = '이메일 보내기';
+      container.appendChild(emailButton);
+
+      // 8. body에 container 추가
+      document.body.appendChild(container);
+  }
+</script>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body onload="createContent()">
+
+</body>
+
+</html>
