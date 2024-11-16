@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>눈</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        div.snow{
+            position: absolute;
+            font-size: 30px;
+            color: white;
+        }
+    </style>
+    <script>
+        let snow=new Array(30);
+        let x=new Array(30);
+        let y=new Array(30);
+        let fall=new Array(30);
+        let wind=new Array(30);
+        let step=new Array(30);
+
+        function f(){
+            for(i=0;i<30;i++){
+                y[i]+=fall[i];
+                x[i]+=Math.cos(wind[i]);
+                if(y[i]>=window.innerHeight-60){
+                    x[i]=Math.floor(Math.random()*window.innerWidth);
+                    y[i]=0;
+                    fall[i]=Math.random()*2+2;
+                }
+                if(x[i]>=window.innerWidth-50){
+                    x[i]=window.innerWidth-50;
+                }
+                else if(x[i]<0){
+                    x[i]=50;
+                }
+                snow[i].style.top=y[i]+"px";
+                snow[i].style.left=x[i]+"px";
+                wind[i]+=step[i];
+            }
+            setTimeout("f()",50);
+        }
+    </script>
+</head>
+<body onload="f()">
+    
+
+    <script>
+    makesnow();
+    
+    function makesnow(){
+        for(let i=0;i<30;i++){
+        x[i]=Math.floor(Math.random() * window.innerWidth-10);
+        y[i]=Math.floor(Math.random() * window.innerHeight+10);
+        fall[i]=Math.random()*2+2;
+        wind[i]=1;
+        step[i]=Math.random()*0.1+0.05;
+
+        let div = "<div class = 'snow' id='snowobj"+i+"' style='top:"+x[i]+"px; left:"+y[i]+"px'>*</div>";
+        document.write(div);
+        snow[i]=document.getElementById("snowobj"+i);
+    }
+    }
+    </script>
+</body>
+</html>
