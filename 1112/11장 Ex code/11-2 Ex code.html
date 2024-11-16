@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+ <html><head><meta charset="utf-8"><title>캔버스그리기맛보기</title></head>
+ <body>
+ <h3>캔버스그리기맛보기</h3>
+ <hr>
+ <canvas id="myCanvas" style="background-color:aliceblue"
+ width="250" height="150"></canvas>
+ <script>
+ let canvas = document.getElementById("myCanvas");
+ let context = canvas.getContext("2d");
+ // 파란선으로사각형그리기
+context.beginPath(); // 빈경로만들기
+context.strokeStyle= "blue"; // 선색설정
+context.rect(30, 30, 50, 50); // (30,30)에서50x50 크기사각형을경로에삽입
+context.stroke(); // 경로에있는모든도형의외곽선그리기
+// violet 색으로채운사각형그리기
+context.beginPath(); // 빈경로만들기
+context.fillStyle= "violet"; // 채우기색
+context.rect(60, 60, 50, 50); // (60,60)에서50x50 크기사각형을경로에삽입
+context.fill(); // 경로에있는모든도형의내부만채워그리기
+// green 색으로텍스트내부만그리기
+context.font= "20px Gothic";
+ context.fillStyle= "green"; // 채우기색
+context.fillText("Text in Canvas", 100, 50); // 텍스트를경로에넣지않고바로그리기
+</script></body></html>
