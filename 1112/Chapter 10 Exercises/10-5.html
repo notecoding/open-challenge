@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시계</title>
+    <style>
+        div{
+            display: inline-block;
+            border: 1px solid gray;
+            background-color: skyblue;
+        }
+    </style>
+    <script>
+        function a(){
+            let c=document.getElementById("c");
+            timeout(c);
+        }
+        function timeout(obj){
+            let t = new Date();
+            obj.innerHTML = t.toLocaleTimeString();
+            setTimeout("timeout(c)",1000);
+        }
+    </script>
+</head>
+<body onload="a()">
+    <h3>div 태그에 시계 만들기</h3>
+    <hr>
+    <div id="c"></div>
+</body>
+</html>

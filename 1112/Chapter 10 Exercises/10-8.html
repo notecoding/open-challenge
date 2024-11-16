@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산수3</title>
+    <script>
+        
+
+        let time;
+
+        function start(){
+            clearTimeout(time);
+            time=setTimeout(c,10000);
+        }
+        
+        function c(){
+            let total=0;
+        let qindex=document.getElementsByClassName("q");
+        let aindex=document.getElementsByClassName("answer");
+        for(let i=0;i<qindex.length;i++){
+            let q=qindex[i].innerHTML;
+            let correct=Math.floor(eval(q));
+            let user=aindex[i].value;
+            if(user=="" || isNaN(user)){
+                total+=0;
+                qindex[i].style.textDecoration="line-through";
+            }
+            else if(parseInt(user) == correct){
+                total += 1;
+                qindex[i].style.textDecoration="none";
+            }
+            else{
+                total+=0;
+                qindex[i].style.textDecoration="line-through";
+            }
+            document.getElementById("s").innerHTML=total;
+        }        
+        }
+
+        function re(){
+            let qindex=document.getElementsByClassName("q");
+            let aindex=document.getElementsByClassName("answer");
+
+            for(let i=0; i<qindex.length; i++){
+                let num1=Math.floor(Math.random()*20)+1;
+                let num2=Math.floor(Math.random()*20)+1;
+                let op=Math.floor(Math.random()*4);
+                let oper="+";
+                switch (op){
+                    case 0:
+                        oper="+";
+                        break;
+                    case 1:
+                        oper="-";
+                        break;
+                    case 2:
+                        oper="*";
+                        break;
+                    case 3:
+                        oper="/";
+                        break;
+                }
+                qindex[i].innerHTML=num1+oper+num2;
+                qindex[i].style.textDecoration="none";
+                aindex[i].value="";
+                document.getElementById("s").innerHTML=0;
+                
+            }
+            start();
+        }
+    </script>
+</head>
+<body onload="re()">
+    <h3>산수 문제를 풀어 봅시다.</h3>
+    <p>문제는 자동으로 생성되며,10초가 지나면 자동 채점됩니다.</p>
+    <div id="c"></div>
+    <hr>
+    <form>
+        <table>
+            <tr>
+                <td class="q"></td>
+                <td><input class="answer" type="text"></td>
+            </tr>
+            <tr>
+                <td class="q"></td>
+                <td><input class="answer" type="text"></td>
+            </tr>
+            <tr>
+                <td class="q"></td>
+                <td><input class="answer" type="text"></td>
+            </tr>
+            <tr>
+                <td class="q"></td>
+                <td><input class="answer" type="text"></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="re()">다시</button></td>
+                <td><span id="s">0</span></td>
+                
+                
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

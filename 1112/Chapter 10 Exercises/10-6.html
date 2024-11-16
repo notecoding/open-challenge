@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시계2</title>
+    <style>
+        div{
+            display: inline-block;
+            border: 1px solid gray;
+            background-color: skyblue;
+        }
+    </style>
+
+    <script>
+        let time=null;
+
+        function onoff(){
+            if(time != null){
+                clearInterval(time);
+                time=null;
+                document.getElementById("c").style.color="gray";
+            }
+            else{
+                time=setInterval("outtime(c)",100);
+                document.getElementById("c").style.color="black";
+            }
+        }
+
+        function go(){
+            let c = document.getElementById("c");
+            outtime(c);
+            time=setInterval("outtime(c)",100);
+        }
+
+        function outtime(i){
+            let date=new Date();
+            i.innerHTML = date.toLocaleTimeString();
+        }
+        
+    </script>
+
+</head>
+<body onload="go()">
+    <h3>div 태그에 시계 만들기</h3>
+    <p>시계를 클릭하면 시계가 멈추고 다시 클릭하면 가기 시작한다.</p>
+    <hr>
+    <div id="c" onclick="onoff()"></div>
+</body>
+</html>
