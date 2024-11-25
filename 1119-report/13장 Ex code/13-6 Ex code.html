@@ -1,0 +1,42 @@
+<!DOCTYPEhtml>
+ <html>
+ <head>
+ <meta charset="utf-8">
+ <title>현재위치와지도출력</title>
+ </head>
+ <body>
+ <h3>현재위치와지도출력</h3>
+ <hr>
+ <div id="msg">이곳에위치정보출력</div>
+ <iframe id="map" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" 
+marginwidth="0" ></iframe><br/>
+ <a id="bigmaplink" target="_blank">새창에큰지도보기</a>
+ <script>
+ if(navigator.geolocation) 
+navigator.geolocation.getCurrentPosition(success); // 현재위치정보요청
+else 
+alert("지원하지않음");
+// 위치파악시success() 호출. 위치정보가들어있는position 객체가매개변수로넘어온다.
+function success(position) {
+ let lat= position.coords.latitude; // 위도
+let lon= position.coords.longitude; // 경도
+let acc= position.coords.accuracy; // 정확도
+// 위도와경도의소수점이하자리가너무길어유효숫자6자리로짜름
+lat= lat.toPrecision(6); lon= lon.toPrecision(6);
+ let now = new Date(position.timestamp);
+ let text = "현재시간" + now.toUTCString() + "<br>";
+ text += "현재위치(위도" + lat+ "°, 경도" + lon+ "°)<br>";
+ text += "정확도" + acc+ "m<br>";
+ document.getElementById("msg").innerHTML= text;
+ let map = document.getElementById("map");
+ map.src="https://www.openstreetmap.org/export/embed.html?bbox=" + 
+(parseFloat(lon)-0.01) + "%2C" + (parseFloat(lat)-0.01) + "%2C" + 
+(parseFloat(lon)+0.01) + "%2C" + (parseFloat(lat) + 0.01);
+ // lat와lon은문자열이므로숫자로바꾸기위해parseFloat() 사용
+let maplink= document.getElementById("bigmaplink");
+ let zoom = 15; // 지도의줌레벨. 숫자가클수록자세한지도
+maplink.href= "https://www.openstreetmap.org/#map=" + zoom + "/" + lat+ "/" + lon;
+ }
+ </script>
+ </body>
+ </html>

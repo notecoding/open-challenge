@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="utf-8">
+ <title>시작과끝숫자를전달받아합을구하는워커태스크</title>
+ </head>
+ <body>
+ <h3>시작과끝숫자를전달받아합을구하는워커태스크</h3>
+ <hr>
+ <input id="from" type="text" size="10"> ~ 
+<input id="to" type="text" size="10"> =
+ <input id="sum" type="text" size="10">
+ <button type="button" id="add" onclick="send()">add</button>
+ <script>
+ let addWorker= new Worker("add.js"); // 워커태스크생성
+function send() { // 워크태스크에시작숫자와끝숫자전송
+letparameters = { // 시작숫자와끝숫자로구성된객체
+from: document.getElementById("from").value,
+ to: document.getElementById("to").value
+ };
+
+ // 시작숫자와끝숫자를담은객체를워커태스크로전송
+addWorker.postMessage(parameters);
+ }
+ // 워커태스크로부터결과를기다리는리스너등록
+addWorker.onmessage= function (e) { 
+// 워커태스크로부터전달받은합출력
+document.getElementById("sum").value = e.data;
+ }
+
+ </script>
+ </body></html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="utf-8">
+ <title>1~10까지더하는워크태스크만들기</title>
+ </head>
+ <body>
+ <h3>1~10까지더하는워크태스크만들기</h3>
+ <hr>
+ <div>1에서10까지의합은<span id="sum"></span></div>
+ <script>
+ // addWorker워커객체생성및워커태스크시작
+let addWorker= new Worker("a.js");
+ // 워크태스크로부터message 이벤트수신
+addWorker.onmessage=function (e) { // e는MessageEvent객체
+// 이벤트객체의data(합) 출력
+document.getElementById("sum").innerHTML= e.data; 
+}
+ </script>
+ </body>
+ </html>

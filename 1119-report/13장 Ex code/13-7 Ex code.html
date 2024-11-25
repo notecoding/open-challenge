@@ -1,0 +1,37 @@
+<!DOCTYPEhtml>
+ <html>
+ <head><meta charset="utf-8"><title>watchPosition()으로반복위치서비스</title></head>
+ <body>
+ <h3>watchPosition()으로반복위치서비스</h3><hr>
+ <div id="msg">이곳에위치정보출력</div>
+ <iframe id="map" width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ></iframe><br/>
+ <script>
+ let options = { // watchPosition()의마지막매개변수로전달할객체
+enableHighAccuracy: false,
+ timeout: 5000,
+ maximumAge: 0 };
+ let count=0; // 반복위치서비스가호출되는횟수
+let watchID; 
+if(navigator.geolocation) {
+ // changed() 콜백함수를등록하고, 반복위치서비스시작
+watchID= navigator.geolocation.watchPosition(changed, null, options);
+ }
+ else { alert("지원하지않음"); }
+ //위치가바뀌면changed()가호출되고, 위치정보가들어있는position 객체가매개변수로넘어온다.
+ function changed(position) {
+ if(count == 5) { // clearWatch() 테스트를위해5번만서비스
+navigator.geolocation.clearWatch(watchID); // 반복서비스종료
+document.getElementById("msg").innerHTML= "위치서비스종료";
+ return;
+ }
+ let lat= position.coords.latitude; // 변경된위도
+let lon= position.coords.longitude// 변경된경도
+let text = count + ": (위도" + lat+ "°, 경도" + lon+ "°)로변경됨<br>";
+ document.getElementById("msg").innerHTML= text; // 위치정보출력
+let map = document.getElementById("map");
+ map.src="https://www.openstreetmap.org/export/embed.html?bbox=" + 
+(parseFloat(lon)-0.01) + "%2C" + (parseFloat(lat)-0.01) + "%2C" + 
+(parseFloat(lon)+0.01) + "%2C" + (parseFloat(lat) + 0.01); // lat와lon은문자열이므로숫자로바꾸기위해parseFloat() 사용
+count++; // 갱신회수증가
+}
+ </script></body></html>
