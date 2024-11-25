@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function b(){
+            if(!window.sessionStorage){
+                alert("지원하지 않습니다");
+                return;
+            }
+            let name=document.getElementById("name").value;
+            let num=document.getElementById("num").value;
+            sessionStorage.setItem(name, num);
+
+            
+        }
+    </script>
+</head>
+<body>
+    <h3>이름과 학번 입력</h3>
+    <hr>
+    <form>
+        <label>이름<input type="text" id="name"></label>
+        <br>
+        <label>학번<input type="text" id="num"></label>
+        <input type="button" value="스토리지에 저장" onclick="b()">
+    </form>
+    <br>
+    <a href="12-1-1.html">이름으로 학번 검색페이지로</a>
+</body>
+</html>

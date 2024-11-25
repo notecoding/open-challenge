@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포스트 잇</title>
+    <script>
+        function a(){
+            if(!window.localStorage){
+                alert("지원하지 않습니다");
+                return;
+            }
+            let title = document.getElementById("title").value;
+            let memo = document.getElementById("memo").value;
+            localStorage.setItem(title,memo);
+        }
+        function b(){
+            window.open("12-3-2.html","v");
+        }
+    </script>
+</head>
+<body>
+    <h3>포스트 잇</h3>
+    <hr>
+    <form>
+        <label>제목 <input id="title" type="text"></label>
+        <br>
+        <label>메모입력<br>
+            <textarea id="memo"></textarea>
+        </label>
+        <br>
+        <input type="button" value="저장" onclick="a()">
+        <input type="button" value="보기" onclick="b()">
+    </form>
+</body>
+</html>
