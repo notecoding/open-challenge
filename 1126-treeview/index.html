@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 기초</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome Icons -->
+  <style>
+    .treeview .list-group-item {
+      cursor: pointer;
+    }
+
+    .treeview span.indent {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .treeview span.icon {
+      width: 12px;
+      margin-right: 5px;
+    }
+
+    .treeview .node-disabled {
+      color: silver;
+      cursor: not-allowed;
+    }
+
+
+    .node-treeview1:not(.node-disabled):hover {
+      background-color: #F5F5F5;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2>자바스크립트 기초</h2>
+  <!-- TreeView Container -->
+  <div id="treeview1" class="treeview"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-treeview@1.2.0/dist/bootstrap-treeview.min.js"></script>
+<script>
+  var defaultData = [
+    {   
+          text: '1.자바스크립트 기초',
+          href: '#',
+          tags: ['7'],
+          nodes: [
+            {
+              text: '1.1.문법기초',
+              href: '#',
+              tags: ['11'],
+              nodes:[
+                {
+                text: '1.1.1.변수만들기',
+                href: '#',
+                tags: ['4'],
+                nodes:[
+                    {
+                        text: '1.1.1.1나이가 담긴 변수',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                    {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+                           예제01: 여러분의 나이가 담긴 변수 age를 만들어 주세요.
+                          */
+                          var age = 30;
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+                  ]
+                    },
+                    {
+                        text: '1.1.1.2.나이가 담긴 변수 콤마활용',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                    {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+
+         예제02: 여러분의 이름과 나이를 저장한 변수를 만들어 주세요.
+
+
+        */
+		var name = "ddandongne";
+		var age = 30;
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+                  ]
+                    },
+                    {
+                        text: '1.1.1.3.변수만들때의 주의사항',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                    {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+        03. 변수이름 만들 때 주의사항
+		예제 : 변수 만들때 주의 사항 테스트.
+        */
+
+        // 1. 숫자로 시작하면 안되요.
+        var 1 st = 10;
+
+        // 2. 대소문자 구분 : name과 Name은 완전히 다른 변수랍니다.
+        var name = "ddandongne";
+        var Name = "ddandongne";
+
+        // 3. 변수는 대문자가 아닌 소문자로 시작하세요.
+        var Name = "ddandongne";
+        //대신
+        var name = "ddandongne";
+
+        // 4. 변하지 않는 환경 변수의 값을 담는 상수 변수는 모두 대문자로 만들어 주세요.
+        var DB_NAME = "webdongne";
+        var ADMIN_ID = "ddandongne";
+
+
+        // 5. 여러 단어가 조합되는 경우 다음과 같이 낙타 표기법(camelcase)으로 작성해 주세요.
+        var userName = "ddandongne";
+        var selectMenuIndex = 1;
+
+        // 5. 문장과 세미콜론(문장뒤에 세미콜론 찍기)
+        var age = 10;
+
+        // 6. 자바스크립트에서 이미 정의된 예약어(키워드)를 사용하면 안돼요.
+        var class = "test1";
+        var for = "test2";
+        var if = "test3";
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+                  ]
+                    }
+
+                ]
+                },
+
+                {
+                text: '변수에 저장할수 있는 데이터 종류',
+                href: '#',
+                tags: ['9'],
+                nodes:[
+                {
+                        text: '숫자데이터 나이 몸무게',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+             /*
+         01. 숫자 데이터 테스트
+         예제01: 여러분의 나이 몸무게를 각각 age, weight 변수에 담아주세요.
+         */
+
+        var age=28;
+        var weight=61.5;
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                },
+                
+                {
+                        text: '문자데이터 아이디',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+
+         02. 문자 데이터 테스트
+         예제02: 여러분의 아이디를 id라는 변수에 저장해 주세요.
+
+         */
+
+        var id = "ddandongne";
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                },
+
+                {
+                        text: '문자데이터 나이를 문자열로',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                        /*
+
+         02. 문자 데이터 테스트
+         예제03: 여러분의 나이를 age라는 변수에 문자열 값으로 저장해 주세요.
+
+         */
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                },
+
+                {
+                        text: '논리 데이터 로그인 유무',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+
+         03. 논리 데이터 테스트
+         예제04: 로그인 유무를 login 변수에 담아보세요.
+         */
+
+        var login = true;
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                },
+
+                {
+                        text: '논리데이터 날씨 표현',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+
+         03. 논리 데이터 테스트
+         예제05: 현재 날씨가 추운지 아닌지 cold 변수에 담아 표현해 주세요.
+
+         */
+
+        var cold = true;
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                },
+
+                {
+                        text: '변수만들때의 주의사항',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+
+         예제02: 여러분의 이름과 나이를 저장한 변수를 만들어 주세요.
+
+
+        */
+		var name = "ddandongne";
+		var age = 30;
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                },
+
+                {
+                        text: '변수만들때의 주의사항',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+
+         예제02: 여러분의 이름과 나이를 저장한 변수를 만들어 주세요.
+
+
+        */
+		var name = "ddandongne";
+		var age = 30;
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                },
+
+                {
+                        text: '변수만들때의 주의사항',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+
+         예제02: 여러분의 이름과 나이를 저장한 변수를 만들어 주세요.
+
+
+        */
+		var name = "ddandongne";
+		var age = 30;
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                },
+
+                {
+                        text: '변수만들때의 주의사항',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+
+         예제02: 여러분의 이름과 나이를 저장한 변수를 만들어 주세요.
+
+
+        */
+		var name = "ddandongne";
+		var age = 30;
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                },
+
+                {
+                        text: '변수만들때의 주의사항',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                        {
+                      text: `
+                        <pre>
+                          &lt;script&gt;
+                          /*
+
+         예제02: 여러분의 이름과 나이를 저장한 변수를 만들어 주세요.
+
+
+        */
+		var name = "ddandongne";
+		var age = 30;
+
+                          &lt;/script&gt;
+                        </pre>
+                      `
+                    }
+
+
+                ]
+                }
+                ]
+                }
+                ,
+                
+                {
+                text: '변수에 데이터 저장하고 변경하기',
+                href: '#',
+                tags: ['9'],
+                nodes:[
+                {
+                        text: '변수만들때의 주의사항',
+                        href: '#',
+                        tags: ['0'],
+                        nodes:[
+                ]
+                }   
+                ]
+                }
+                ,
+                {
+                text: '변수값이 자동으로 읽혀지는 경우',
+                href: '#',
+                tags: ['0']
+                }
+                ,
+                {
+                text: '변수를 활용한 데이터 중복제거 및 재사용',
+                href: '#',
+                tags: ['0']
+                }
+                ,
+                {
+                text: '변수값 확인하기',
+                href: '#',
+                tags: ['0']
+                }
+                ,
+                {
+                text: '주석',
+                href: '#',
+                tags: ['0']
+                }
+                ,
+                {
+                text: '배열변수',
+                href: '#',
+                tags: ['0']
+                }
+                ,
+                {
+                text: '변수종료정리',
+                href: '#',
+                tags: ['0']
+                }
+                ,
+                {
+                text: '미션',
+                href: '#',
+                tags: ['0']
+                }
+              ]
+            }
+            
+          ]
+        
+        
+    }
+    
+  ];
+
+  // TreeView plugin initialization
+  $('#treeview1').treeview({
+    data: defaultData,
+    collapseIcon: 'fas fa-minus',
+    expandIcon: 'fas fa-plus',
+    showTags: true // Show tags on each node
+  });
+</script>
+
+</body>
+</html>
